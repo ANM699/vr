@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3256278, g: 0.4028315, b: 0.6231916, a: 1}
+  m_IndirectSpecularColor: {r: 0.32568175, g: 0.40279302, b: 0.6231668, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: https://aliyun4a-vod.bestvcdn.com.cn/gslb/program/Dweb-mobile-vodv4.bestvcdn.com.cnD/_dC9kVVJSak1LUVVZZWhFRA_key64713F761E35916C729549D8F690E5B454E7B2CEFE20176933CBBC33F96152CD57BCCD4CBD685CD95CF9B679478AB13ED748D806B6ACD78994F8C90F03AFA25DD1EE8779C4C04D32F85B5C3AE52A076CACBB8B278725E63AD748793B22A78FBCE35AA684B98740ED82CA2561E34D23E5_/FDN/FDNB4982894/prime.m3u8?_userId=46f515e4-70aa-4197-bfed-c6850260f9cf&BitRate=400,700,1300&_cp=1&se=weixin
+  m_VideoPath: http://cctvalih5ca.v.myalicdn.com/live/cctv1_2/index.m3u8
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0

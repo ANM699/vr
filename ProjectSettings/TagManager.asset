@@ -9,6 +9,8 @@ TagManager:
   - msg
   - item
   - menu
+  - Tab
+  - ItemPanel
   layers:
   - Default
   - TransparentFX

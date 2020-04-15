@@ -37,6 +37,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 #endregion
 
 /// <summary>
@@ -550,10 +551,14 @@ public class iTween : MonoBehaviour
 			tempColor=fromColor=target.GetComponent<Renderer>().material.color;
 		}else if(target.GetComponent<Light>()){
 			tempColor=fromColor=target.GetComponent<Light>().color;
-		}
-		
-		//set augmented fromColor:
-		if(args.Contains("color")){
+		}else if (target.GetComponent<Image>()){
+            tempColor = fromColor = target.GetComponent<Image>().color;
+        }else if (target.GetComponent<RawImage>()){
+            tempColor = fromColor = target.GetComponent<RawImage>().color;
+        }
+
+        //set augmented fromColor:
+        if (args.Contains("color")){
 			fromColor=(Color)args["color"];
 		}else{
 			if (args.Contains("r")) {
@@ -3175,7 +3180,16 @@ public class iTween : MonoBehaviour
 		}else if(GetComponent<Light>()){
 			colors = new Color[1,3];
 			colors[0,0] = colors[0,1] = GetComponent<Light>().color;	
-		}else{
+		}else if (GetComponent<Image>())
+        {
+            colors = new Color[1, 3];
+            colors[0, 0] = colors[0, 1] = GetComponent<Image>().color;
+        } else if (GetComponent<RawImage>())
+        {
+            colors = new Color[1, 3];
+            colors[0, 0] = colors[0, 1] = GetComponent<RawImage>().color;
+        }else
+        {
 			colors = new Color[1,3]; //empty placeholder incase the GO is perhaps an empty holder or something similar
 		}
 		
@@ -3943,10 +3957,16 @@ public class iTween : MonoBehaviour
 		}else if(GetComponent<Light>()){
 			//light.color=colors[2];	
 			GetComponent<Light>().color=colors[0,2];
-		}
-		
-		//dial in:
-		if(percentage==1){
+		} else if (GetComponent<Image>())
+        {
+            GetComponent<Image>().color = colors[0, 2];
+        }else if (GetComponent<RawImage>())
+        {
+            GetComponent<RawImage>().color = colors[0, 2];
+        }
+
+        //dial in:
+        if (percentage==1){
 			if(GetComponent<Renderer>()){
 				//renderer.material.color=colors[1];	
 				for (int i = 0; i < colors.GetLength(0); i++) {
@@ -4673,10 +4693,14 @@ public class iTween : MonoBehaviour
 			colors[0] = colors[1] = target.GetComponent<Renderer>().material.color;
 		}else if(target.GetComponent<Light>()){
 			colors[0] = colors[1] = target.GetComponent<Light>().color;	
-		}		
-		
-		//to values:
-		if (args.Contains("color")) {
+		}else if (target.GetComponent<Image>()){
+            colors[0] = colors[1] = target.GetComponent<Image>().color;
+        }else if (target.GetComponent<RawImage>()){
+            colors[0] = colors[1] = target.GetComponent<RawImage>().color;
+        }
+
+        //to values:
+        if (args.Contains("color")) {
 			colors[1]=(Color)args["color"];
 		}else{
 			if (args.Contains("r")) {

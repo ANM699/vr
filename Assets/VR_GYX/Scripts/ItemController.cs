@@ -10,19 +10,14 @@ public class ItemController : MonoBehaviour
 {
     //private Scene videoScene;
     public GameObject mPrefab;
-    private static readonly string URL = "https://bestvapi.bestv.cn/smgbb/api/home";
+    public Transform itemPanel;
+    private static readonly string URL = "https://bestvapi.bestv.cn/api/program_list?cid=387&len=8&p=1";
     private Sprite sprite;
 
     void Awake()
     {
         UnityNetworkManager.Instance.Get(URL, handleRequest);
         //GameObject[] gos = GameObject.FindGameObjectsWithTag("item");
-        //foreach (GameObject go in gos)
-        //{
-        //    HVREventListener.Get(go).onEnter = onPointEnter;
-        //    HVREventListener.Get(go).onExit = onPointExit;
-        //    HVREventListener.Get(go).onClick = onPointerClick;
-        //}
     }
 
     private void handleRequest(bool isError, string data)
@@ -30,7 +25,7 @@ public class ItemController : MonoBehaviour
         if (!isError)
         {
             var jsonData = JSON.Parse(data);
-            var items = jsonData["block"][0]["items"];
+            var items = jsonData["list"];
             for (int i = 0; i < items.Count; i++)
             {
                 items[i]["index"] =i.ToString();
@@ -42,9 +37,16 @@ public class ItemController : MonoBehaviour
 
     private void CreateItem(JSONNode item)
     {
-        string imgUrl = item["img"];
+        string imgUrl = item["img1"];
+        GameObject go = Instantiate(mPrefab, itemPanel, false);
+        go.name = "item" + item["index"];
+        HVREventListener.Get(go).onEnter = onPointEnter;
+        HVREventListener.Get(go).onExit = onPointExit;
+        HVREventListener.Get(go).onClick = onPointerClick;
+        Text txt = go.GetComponentInChildren<Text>();
+        txt.text = item["title"];
         //请求并设置图片
-        UnityNetworkManager.Instance.GetTexture(imgUrl, item, handleReqImage);
+        UnityNetworkManager.Instance.GetTexture(imgUrl, go, handleReqImage);
     }
 
     /// <summary>
@@ -54,20 +56,18 @@ public class ItemController : MonoBehaviour
     /// <param name="data">如果出错返回的错误信息，否则为null</param>
     /// <param name="texture">请求成功返回的结果</param>
     /// <param name="item">传入item其他信息</param>
-    private void handleReqImage(bool isError, string data, Texture2D texture, JSONNode item)
+    private void handleReqImage(bool isError, string data, Texture2D texture, GameObject go)
     {
-        GameObject go = Instantiate(mPrefab, transform, false);
-        go.name = "item" + item["index"];
-        HVREventListener.Get(go).onEnter = onPointEnter;
-        HVREventListener.Get(go).onExit = onPointExit;
-        HVREventListener.Get(go).onClick = onPointerClick;
-        Text txt = go.GetComponentInChildren<Text>();
-        //Image img = go.GetComponentInChildren<Image>();
+        //GameObject go = Instantiate(mPrefab, transform, false);
+        //go.name = "item" + item["index"];
+        //HVREventListener.Get(go).onEnter = onPointEnter;
+        //HVREventListener.Get(go).onExit = onPointExit;
+        //HVREventListener.Get(go).onClick = onPointerClick;
+        //Text txt = go.GetComponentInChildren<Text>();
         RawImage rimg = go.GetComponentInChildren<RawImage>();
-        txt.text = item["title"];
+        //txt.text = item["title"];
         if (texture != null && !isError)
         {
-            
             rimg.texture = texture;
             //img.sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         }
