@@ -2,6 +2,7 @@
 using RenderHeads.Media.AVProVideo;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -15,7 +16,15 @@ public class MenuController : MonoBehaviour
         GameObject[] gos = GameObject.FindGameObjectsWithTag("menu");
         foreach (GameObject go in gos)
         {
-            HVREventListener.Get(go).onClick = onPointerClick;
+            if (go.name == "Vid")
+            {
+                Text txt = go.GetComponentInChildren<Text>();
+                txt.text = Global.VidToPlay;
+            }
+            else
+            {
+                HVREventListener.Get(go).onClick = onPointerClick;
+            }
         }
         //HVREventListener.Get(transform.gameObject).onClick = onPointerClick;
     }

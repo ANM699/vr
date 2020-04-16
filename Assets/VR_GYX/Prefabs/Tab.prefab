@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 222822994881074192}
   - component: {fileID: 114874429689234002}
   - component: {fileID: 114545636564545918}
+  - component: {fileID: 114508601855962298}
   m_Layer: 0
   m_Name: Tab
   m_TagString: Tab
@@ -79,6 +80,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button
+--- !u!114 &114508601855962298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1963567848267116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b97412e49d61974eb096e5e33c29b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114545636564545918
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -37,9 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 224564131998881150}
   - component: {fileID: 222528042708754786}
+  - component: {fileID: 114716914174057854}
   m_Layer: 0
   m_Name: Item
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +88,17 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &114716914174057854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656686428432584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8b33410f34acf48b661ea297d583db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114735931408508060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,7 +124,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 48
+    m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
