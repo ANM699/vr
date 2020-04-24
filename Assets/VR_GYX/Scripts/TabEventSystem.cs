@@ -22,6 +22,7 @@ public class TabEventSystem : MonoBehaviour
         {
             //对应的itemPanel加载第一页内容
             ItemController itemController = itemPanel.GetComponent<ItemController>();
+            Global.curItemController = itemController;
             itemController.init();
         }
         foreach (GameObject itemPanel in itemPanels)
