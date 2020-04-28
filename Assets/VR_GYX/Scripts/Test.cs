@@ -20,12 +20,11 @@ public class Test : MonoBehaviour
     private float newX;
     private float sliderWidth; //整个Slider宽度
     private float scaleX;//Slider宽度（X方向）缩放
+
     void Start()
     {
-        //iTween.ColorFrom(gameObject, Color.red, 2.0f);
         rtSliderBtn = this.GetComponent<RectTransform>();
         RectTransform rtSlider = slider.GetComponent<RectTransform>();
-        //RectTransform rtCanvas = canvas.GetComponent<RectTransform>();
 
         scaleX = rtSlider.lossyScale.x;
         sliderWidth = rtSlider.rect.width;

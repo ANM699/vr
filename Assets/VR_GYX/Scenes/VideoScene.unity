@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638c870cac4da414fba921606d504407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_VideoLocation: 2
-  m_VideoPath: 
+  m_VideoLocation: 0
+  m_VideoPath: http://cctvalih5ca.v.myalicdn.com/live/cctv1_2/index.m3u8
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
@@ -1272,7 +1272,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  _mediaPlayer: {fileID: 0}
+  _mediaPlayer: {fileID: 56723219}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1763,11 +1763,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 717420342}
-  pos: {x: 0, y: 0, z: 0}
-  initX: 0
-  newX: 0
-  sliderWidth: 0
-  scaleX: 0
 --- !u!1 &1238680308
 GameObject:
   m_ObjectHideFlags: 0
