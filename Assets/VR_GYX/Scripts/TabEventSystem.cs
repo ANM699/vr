@@ -18,11 +18,11 @@ public class TabEventSystem : MonoBehaviour
     public void onPointerClick(GameObject go)
     {
         animate(go);
+        ItemController itemController = itemPanel.GetComponent<ItemController>();
+        Global.curItemController = itemController;
         if (itemPanel.transform.childCount == 0)
         {
-            //对应的itemPanel加载第一页内容
-            ItemController itemController = itemPanel.GetComponent<ItemController>();
-            Global.curItemController = itemController;
+            //对应的itemPanel加载第一页内容          
             itemController.init();
         }
         foreach (GameObject itemPanel in itemPanels)
